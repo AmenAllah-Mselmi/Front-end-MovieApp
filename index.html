@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie App</title>
+    <script>
+      // Apply theme before page loads to prevent flash
+      const theme = localStorage.getItem('theme') || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.classList.add(theme);
+      
+      // Set CSS variables for toast theming based on color mode
+      if (theme === 'dark') {
+        document.documentElement.style.setProperty('--toast-bg', '#1F2937');
+        document.documentElement.style.setProperty('--toast-color', '#F9FAFB');
+      } else {
+        document.documentElement.style.setProperty('--toast-bg', '#FFFFFF');
+        document.documentElement.style.setProperty('--toast-color', '#1F2937');
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
