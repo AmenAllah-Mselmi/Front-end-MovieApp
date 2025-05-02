@@ -8,6 +8,9 @@ import MovieDetailPage from './pages/MovieDetailPage';
 import AddMoviePage from './pages/AddMoviePage';
 import EditMoviePage from './pages/EditMoviePage';
 import SearchResultsPage from './pages/SearchResultsPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import PricingPage from './pages/PricingPage';
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
               <Route path="/movies/new" element={<AddMoviePage />} />
               <Route path="/movies/:id/edit" element={<EditMoviePage />} />
               <Route path="/search" element={<SearchResultsPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/pricing" element={<PricingPage />} />
             </Routes>
           </main>
           <Toaster

@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Film, Menu, X, Sun, Moon, Search } from 'lucide-react';
+import { 
+  Film, 
+  Menu, 
+  X, 
+  Sun, 
+  Moon, 
+  Search, 
+  Info, 
+  CreditCard, 
+  Mail,
+  Plus 
+} from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import Button from './ui/Button';
 
@@ -42,10 +53,22 @@ const Header: React.FC = () => {
               Home
             </Link>
             <Link 
-              to="/movies/new" 
+              to="/about" 
               className="text-gray-700 transition-colors hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400"
             >
-              Add Movie
+              About
+            </Link>
+            <Link 
+              to="/pricing" 
+              className="text-gray-700 transition-colors hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400"
+            >
+              Pricing
+            </Link>
+            <Link 
+              to="/contact" 
+              className="text-gray-700 transition-colors hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400"
+            >
+              Contact
             </Link>
           </nav>
 
@@ -75,9 +98,12 @@ const Header: React.FC = () => {
               {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </button>
 
-            <Button variant="primary" size="sm" as={Link} to="/movies/new">
-              Add Movie
-            </Button>
+            <Button 
+  variant="primary"
+  onClick={() => navigate('/movies/new')}
+>
+  Add Movie
+</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -114,18 +140,48 @@ const Header: React.FC = () => {
             <nav className="flex flex-col space-y-4">
               <Link 
                 to="/" 
-                className="text-gray-700 transition-colors hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400"
+                className="flex items-center text-gray-700 transition-colors hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400"
                 onClick={() => setIsMenuOpen(false)}
               >
+                <Film className="mr-2 h-5 w-5" />
                 Home
               </Link>
               <Link 
-                to="/movies/new" 
-                className="text-gray-700 transition-colors hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400"
+                to="/about" 
+                className="flex items-center text-gray-700 transition-colors hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Add Movie
+                <Info className="mr-2 h-5 w-5" />
+                About
               </Link>
+              <Link 
+                to="/pricing" 
+                className="flex items-center text-gray-700 transition-colors hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <CreditCard className="mr-2 h-5 w-5" />
+                Pricing
+              </Link>
+              <Link 
+                to="/contact" 
+                className="flex items-center text-gray-700 transition-colors hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Mail className="mr-2 h-5 w-5" />
+                Contact
+              </Link>
+              
+              <Button 
+                variant="primary" 
+                size="sm" 
+                as={Link} 
+                to="/movies/new" 
+                className="w-full justify-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Plus className="mr-2 h-4 w-4" />
+                Add Movie
+              </Button>
               
               <div className="flex items-center justify-between border-t border-gray-200 pt-4 dark:border-gray-700">
                 <span className="text-gray-600 dark:text-gray-400">Theme</span>
